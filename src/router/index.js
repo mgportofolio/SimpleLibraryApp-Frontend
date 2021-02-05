@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import BookView from "../views/BookView.vue";
 
 Vue.use(VueRouter);
 
@@ -8,7 +8,36 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: () =>
+      import("../views/Home.vue")
+  },
+  {
+    path: "/book/:id",
+    name: "Book",
+    component: BookView
+  },
+  {
+    path: "/book",
+    name: "Book",
+    component: BookView
+  },
+  {
+    path: "/rent",
+    name: "Rent",
+    component: () =>
+      import("../views/RentView.vue")
+  },
+  {
+    path: "/users",
+    name: "Users",
+    component: () =>
+      import("../views/UsersView.vue")
+  },
+    {
+    path: "/register",
+    name: "Register",
+    component: () =>
+      import("../views/RegisterView.vue")
   },
   {
     path: "/about",
